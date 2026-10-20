@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <style>
+        h1 {color: #0400fc;  font-size: 2.5rem;}
+        body {margin: 0; font-family: system-ui, sans-serif;}
+        p { color: #00c056; }
+        .metric { padding: 1rem; }
+        #result { min-height: 8rem; }
+        button:hover { background: #1d4ed8; }
+        input:focus { outline: 3px solid #ca037e; }
+        :root { --ink: #111827; --muted: #6b7280; --brand: #2563eb; }
+        body { color: var(--ink); font-size: 16px; line-height: 1.7; }
+    </style>
+    <h1>My First Heading</h1>
+     <p>My first paragraph</p>
+    <article>
+        <h1>청년 인구, 5년 새 8.2% 감소</h1>
+        <p><strong>서울 청년 인구</strong>가 지속적으로 감소했습니다.</p>
+        <p><em>자료: 국가통계포털</em></p>
+    </article>
+    <h2>핵심 발견</h2>
+    <ul>
+        <li>20대 인구 감소 폭이 가장 큽니다.</li>
+        <li>외곽 지역의 감소율이 높습니다.</li>
+    </ul>
+    <a href="https://kosis.kr">원자료 확인</a>
+    <table>
+        <caption>2024~2026년 서울 청년 인구</caption>
+        <thead>
+            <tr>
+                <th scope="col">연도</th>
+                <th scope="col">인구</th>
+                <th scope="col">증감률</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">2024</th>
+                <td>2,410,000명</td>
+                <td>-2.1%</td>
+            </tr>
+            <tr>
+                <th scope="row">2025</th>
+                <td>2,350,000명</td>
+                <td>-2.5%</td>
+            </tr>
+            <tr>
+                <th scope="row">2026</th>
+                <td>2,290,000명</td>
+                <td>-2.6%</td>
+            </tr>
+        </tbody>
+    </table>
+    <figure>
+        <img src="images/population-chart.png" alt="2024년부터 2026년까지 서울 청년 인구가 감소하는 선그래프">
+        <figcaption>서울 청년 인구 추이. 자료: 국가통계포털</figcaption>
+    </figure>
+    <form id="filter-form">
+        <label for="keyword">검색어</label>
+        <input id="keyword" name="keyword" type="search">
+        <label for="region">지역</label>
+        <select id="region" name="region">
+            <option value="all">전체</option>
+            <option value="seoul">서울</option>
+        </select>
+        <button type="submit">적용</button>
+    </form>
+    <section class="metrics" aria-label="핵심 지표">
+        <article class="metric">
+            <h2>청년 인구</h2>
+            <strong>229만 명</strong>
+            <p>전년 대비 2.6% 감소</p>
+        </article>
+    </section>
+    <section aria-labelledby="chart-title">
+        <h2 id="chart-title">연도별 변화</h2>
+        <div id="chart" role="img" aria-label="연도별 청년 인구 차트"></div>
+    </section>
+</body>
+
+</html>

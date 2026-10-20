@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+
+<body>
+
+    <h1>구구단</h1>
+
+    <input type="number" id="dan" placeholder="몇 단?">
+
+    <button onclick="showGugudan()">구구단 보기</button>
+
+    <div id="result"></div>
+
+
+    <script>
+
+        function showGugudan() {
+
+            let dan = document.getElementById("dan").value;
+
+            let result = "";
+
+            for (let i = 1; i <= 9; i++) {
+
+                result += dan + " × " + i + " = " + (dan * i) + "<br>";
+
+            }
+
+            document.getElementById("result").innerHTML = result;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

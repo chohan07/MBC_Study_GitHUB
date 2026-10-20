@@ -1,0 +1,101 @@
+자주 사용하는 앱에서 바로 AI를 사용해 보세요 … Gemini를 사용하여 초안을 생성하고 콘텐츠를 다듬고, Google의 차세대 AI가 지원되는 Gemini Pro를 이용하세요.
+100%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 01</title>
+    <script>
+       
+    </script>
+</head>
+<body>
+    <h1 id="id2">연산자</h1>
+    <h1 class="c2">제어문</h1>
+    <script>
+        var a1 = false;  // 15
+        var a2 = 0;      //"15"
+        console.log((a1==a2)? "==같다":  "==다르다");
+        console.log((a1===a2)? "===같다":  "===다르다");
+
+        var arr = ["apple","banana"];
+        for(var i=0; i<arr.length; i++){
+            console.log(arr[i]);
+        }
+        for(var i in arr){
+            console.log(arr[i]);
+        }
+
+        var obj = { k1 : "seoul" 
+                    , k2 : "daejeon"  
+                    , key : "이거이거" 
+                    , k3 : 100
+                    , k4 :  ["apple","banana"]
+                };
+        console.log(obj);
+        console.log(obj.key);
+        console.log(obj["key"]);
+        
+        var v1 = "k1";
+        console.log(v1);
+        console.log(obj[v1]);
+
+        console.log(obj["k1"]);
+        
+        console.log(obj.k1);
+
+        // 속성명을 알때, 하나만 꺼내서 보고싶을때 : object. 사용할 때
+        // 속성명을 모를때 사용 - 속성명을 알아와서 v1변수에 넣고 -  object[변수명] 
+        // 속성들 다꺼내고 싶을때, 다 보고 싶을때 - 반복문을 사용 하고 싶을때 - object["속성명"]
+        for(var v1 in obj){
+            console.log(v1);
+            console.log(typeof(v1));
+            // var v1 = "k1";
+            // var v1 = "k2";
+            console.log(obj[v1]);
+            console.log(obj.key);
+            // console.log(obj["k1"]);
+        }
+
+        for(var key in obj){
+            console.log(key);
+            console.log(typeof(key));
+            // var key = "k1";
+            // var key = "k2";
+            console.log(obj[key]);
+            console.log(obj.key);
+            // console.log(obj["k1"]);
+        }
+
+        ////// 내일할께요~~
+        var arr = ["apple","banana", function(){ console.log("배열의2번index에함수입니다.");}];
+        for(var i in arr){
+            if(typeof( arr[i]) == "function") {
+                arr[i]();
+            } else {
+                console.log(arr[i]);
+            }
+        }
+
+        arr[10] = "10번방에 값넣기";
+        for(var i in arr){
+            console.log(i);
+            console.log(arr[i]);
+        }
+        for(var i=0; i<arr.length+3; i++){
+            console.log(arr[i]);
+        }
+
+        var arr = new Array(2);  // 2개방 즉 index 0,1 
+        arr[0] = 100;
+        arr.push(103);  // 맨뒤에 추가 // index 2
+        arr.push("apple");
+        arr.push("2번방에도 값들어가나?");
+        arr[10] = "10번방 []으로도 들어가나?";
+        for(var i in arr){
+            console.log(i +":"+arr[i]);
+        }
+    </script>    
+</body>
+</html>

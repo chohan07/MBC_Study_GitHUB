@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페 진동벨로 배우는 Node.js 날씨 앱</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 헤더 영역 -->
+    <header class="header-card">
+      <div class="header-top">
+        <h1>☕ 카페 진동벨로 배우는 Node.js 날씨 앱</h1>
+        <span class="badge">Express Backend</span>
+      </div>
+      <p class="header-sub">자바스크립트 비동기 삼총사: fetch (주문) · Promise (진동벨) · async/await (대기)</p>
+    </header>
+
+    <!-- 1. 날씨 요청 제어판 -->
+    <section class="panel">
+      <h2>1. 날씨 요청 제어판</h2>
+      <div class="control-row">
+        <div class="select-group">
+          <label for="city-select">도시 선택</label>
+          <select id="city-select">
+            <option value="seoul">서울 (Seoul)</option>
+            <option value="tokyo">도쿄 (Tokyo)</option>
+            <option value="newyork">뉴욕 (New York)</option>
+            <option value="london">런던 (London)</option>
+            <option value="paris">파리 (Paris)</option>
+          </select>
+        </div>
+        <button id="btn-single" class="btn btn-blue">
+          단일 조회<br><small>(async/await)</small>
+        </button>
+        <button id="btn-all" class="btn btn-green">
+          전체 5개 도시 동시 조회<br><small>(Promise.all)</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. 도시별 날씨 카드 결과 -->
+    <section class="panel result-panel">
+      <div class="result-header">
+        <div>
+          <h3 id="result-status">✅ 5개 도시 동시 수령 성공! (Fulfilled)</h3>
+          <p id="result-time" class="sub-text">총 소요 시간: 단 --ms (직렬 실행 대비 압도적 단축)</p>
+        </div>
+        <span class="tag-fulfilled">FULFILLED</span>
+      </div>
+
+      <div class="cards-grid" id="cards-container">
+        <!-- JS에서 다이나믹하게 카드 추가됨 -->
+      </div>
+    </section>
+
+    <!-- 3. 터미널 스타일 콘솔 로그 -->
+    <section class="panel console-panel">
+      <div class="console-header">
+        <h3>📜 비동기 실행 실시간 로그 (Console)</h3>
+        <button id="btn-clear-log" class="btn-clear">로그 지우기</button>
+      </div>
+      <div class="console-box" id="console-box">
+        <!-- 로그 라인들 -->
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

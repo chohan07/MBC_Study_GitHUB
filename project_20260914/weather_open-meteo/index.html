@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울 실시간 날씨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>오늘의 서울 날씨</h1>
+    <button id="get-weather-btn">날씨 불러오기</button>
+    
+    <div id="weather-info" class="hidden">
+  <!-- 아이콘 및 텍스트 표시 영역 추가 -->
+  <div class="weather-status">
+    <span id="weather-icon">☀️</span>
+    <span id="weather-text">맑음</span>
+  </div>
+
+  <div class="temp-display">
+    <span id="temperature">--</span>°C
+  </div>
+  <div class="details">
+    <p>풍속: <span id="windspeed">--</span> km/h</p>
+  </div>
+</div>
+    
+    <div id="weather-info" class="hidden">
+      <div class="temp-display">
+        <span id="temperature">--</span>°C
+      </div>
+      <div class="details">
+        <p>풍속: <span id="windspeed">--</span> km/h</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
