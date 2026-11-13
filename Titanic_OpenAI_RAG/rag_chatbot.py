@@ -22,7 +22,8 @@ def ask_rag(question):
     evidence = fact["근거"]
 
     response = client.responses.create(
-        model="gpt-4.1-mini",
+        model="gpt-6-luna",
+        reasoning={"effort": "none"},
         instructions=(
             "당신은 타이타닉 데이터 팩트체킹 챗봇입니다. "
             "제공된 근거에 있는 내용으로만 답변하세요. "

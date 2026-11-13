@@ -16,7 +16,8 @@ client = OpenAI(api_key=api_key)
 
 # 간단한 연결 테스트
 response = client.responses.create(
-    model="gpt-4.1-mini",
+    model="gpt-6-luna",
+        reasoning={"effort": "none"},
     input="연결 테스트입니다. 'OpenAI API 연결 성공'이라고 답해주세요.",
     max_output_tokens=100
 )

@@ -25,7 +25,7 @@ MBC AI 기반 데이터 저널리스트 양성과정의 자동 팩트체킹 실�
 |---|---|
 | 언어 | Python |
 | 데이터 분석 | Pandas |
-| AI 모델 | OpenAI GPT |
+| AI 모델 | OpenAI GPT-6 Luna (`gpt-6-luna`) |
 | AI API | OpenAI Responses API |
 | RAG 검색 | 키워드 기반 사실 검색 |
 | 웹 인터페이스 | Streamlit |
@@ -71,6 +71,8 @@ Titanic_RAG/
 6. 근거가 없으면 '확인 불가'를 출력합니다.
 
 현재는 벡터 검색이 아닌 키워드 검색 방식입니다.
+
+GPT-6 Luna는 간단한 사실 확인 응답을 위해 `reasoning.effort="none"`으로 설정되어 있습니다.
 
 ## 7. 설치 및 실행 방법
 
