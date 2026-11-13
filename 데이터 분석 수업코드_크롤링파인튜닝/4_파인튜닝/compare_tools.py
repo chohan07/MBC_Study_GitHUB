@@ -2,7 +2,7 @@
 
     from compare_tools import connect, ask_models, auto_summary, make_report
 
-- connect()       : 원본(Ollama) · 내 모델(Ollama) · gpt-4.1-mini(OpenAI) 연결
+- connect()       : 원본(Ollama) · 내 모델(Ollama) · gpt-6-luna(OpenAI) 연결
 - ask_models()    : 같은 문제를 세 모델에 묻고, results/ 폴더에 기록으로 저장
 - auto_summary()  : 리드 형식 자동 체크 요약표 (참고용, 최종 판단은 사람이)
 - make_report()   : 세 모델 답을 나란히 놓은 웹 비교표(HTML) 만들기
@@ -20,7 +20,7 @@ from openai import OpenAI
 
 ORIGINAL = '원본 Qwen2.5-3B'
 MINE = '내가 학습한 모델'
-GPT = 'gpt-4.1-mini'
+GPT = 'gpt-6-luna'
 COLORS = {ORIGINAL: '#9aa5b1', MINE: '#1f8a70', GPT: '#2563a8'}
 RESULTS = Path('results')          # 실행 기록 폴더 (GitHub에 올리지 않아요)
 
@@ -32,12 +32,21 @@ def connect(my_model, openai_key=None, ollama_url='http://localhost:11434/v1'):
     cloud = OpenAI(api_key=openai_key) if openai_key else None
     return {ORIGINAL: (local, 'qwen2.5:3b'),
             MINE:     (local, my_model),
-            GPT:      (cloud, 'gpt-4.1-mini')}
+            GPT:      (cloud, 'gpt-6-luna')}
 
 
 # ── 2. 묻기 ─────────────────────────────────────────────
 def _ask(client, model, instruction, text):
     try:
+        if model == 'gpt-6-luna':
+            r = client.responses.create(
+                model=model,
+                reasoning={'effort': 'none'},
+                instructions=instruction,
+                input=text,
+                max_output_tokens=1200,
+            )
+            return r.output_text.strip()
         r = client.chat.completions.create(
             model=model, temperature=0,
             messages=[{'role': 'user', 'content': instruction + '\n\n' + text}])
@@ -147,7 +156,7 @@ def make_report(df, answers, path, title, note='', gold_col='output', gold_label
                       f'{gold_html}<div class="row">{cards}</div>')
 
     mode = ('블라인드: 문제마다 A·B·C 순서를 새로 섞었어요. 같은 글자라도 문제마다 다른 모델이에요. 다 고른 뒤 맨 아래 정답지를 여세요.'
-            if blind else '순서 고정: 원본(회색) → 내가 학습한 모델(초록) → gpt-4.1-mini(파랑)')
+            if blind else '순서 고정: 원본(회색) → 내가 학습한 모델(초록) → gpt-6-luna(파랑)')
     key_html = ('<details class="key"><summary>🔑 정답지 열기 (다 고른 뒤에)</summary><table class="k">'
                 + ''.join(key_rows) + '</table></details>') if blind else ''
     sum_html = auto_summary(df, answers, gold_col).reset_index().to_html(index=False, classes='sum', border=0)
